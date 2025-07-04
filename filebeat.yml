@@ -40,14 +40,11 @@ metadata:
   namespace: logging
 data:
   filebeat.yml: |-
-    filebeat.inputs:
-      - type: filestream
-        enabled: true
-        paths:
-          - /var/log/containers/*.log
-        parsers:
-          - container:
-              stream: all
+    filebeat.autodiscover:
+      providers:
+        - type: kubernetes
+          node: ${NODE_NAME}
+          hints.enabled: true
 
     processors:
       - add_cloud_metadata: ~
