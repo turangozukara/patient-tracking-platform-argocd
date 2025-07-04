@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: {{ .Values.backend.name }}
+      annotations:
+        co.elastic.logs/enabled: "true"
     spec:
       nodeSelector:
         {{ toYaml .Values.nodeSelector | nindent 8 }}
