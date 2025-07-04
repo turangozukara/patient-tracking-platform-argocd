@@ -41,10 +41,13 @@ metadata:
 data:
   filebeat.yml: |-
     filebeat.inputs:
-      - type: container
+      - type: filestream
         enabled: true
         paths:
           - /var/log/containers/*.log
+        parsers:
+          - container:
+              stream: all
 
     processors:
       - add_cloud_metadata: ~
