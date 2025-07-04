@@ -65,6 +65,6 @@ data:
     output {
       elasticsearch {
         hosts => ["http://elasticsearch:9200"]
-        index => "logstash-%{+YYYY.MM.dd}"
+        index => "filebeat-%{+YYYY.MM.dd}"
       }
     }
