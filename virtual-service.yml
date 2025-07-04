@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: patient-tracking-vs
+  namespace: istio-system
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - patient-tracking-gateway
+  http:
+  - route:
+    - destination:
+        host: backend-svc.patient-tracking.svc.cluster.local
+        port:
+          number: 80
+  - route:
+    - destination:
+        host: frontend-svc.patient-tracking.svc.cluster.local
+        port:
+          number: 80
