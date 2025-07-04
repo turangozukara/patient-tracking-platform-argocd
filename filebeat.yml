@@ -41,12 +41,10 @@ metadata:
 data:
   filebeat.yml: |-
     filebeat.inputs:
-      - type: log
+      - type: container
         enabled: true
         paths:
-          - /var/log/*.log
-          - /var/log/messages
-          - /var/log/syslog
+          - /var/log/containers/*.log
 
     processors:
       - add_cloud_metadata: ~
