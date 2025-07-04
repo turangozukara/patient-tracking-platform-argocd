@@ -50,11 +50,13 @@ _internal_defaults_do_not_set:
     - name: http2
       port: 80
       protocol: TCP
-      targetPort: 80
+      targetPort: 8080
+      nodePort: 32732
     - name: https
       port: 443
       protocol: TCP
-      targetPort: 443
+      targetPort: 8443
+      nodePort: 31984
     annotations: {}
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
