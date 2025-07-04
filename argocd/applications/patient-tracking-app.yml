@@ -69,3 +69,22 @@ spec:
     syncOptions:
       - CreateNamespace=true
 
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-stack
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kullaniciadi/patient-tracking-platform-argocd
+    targetRevision: istio
+    path: istio
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: istio-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
