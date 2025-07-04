@@ -47,5 +47,12 @@ data:
           - /var/log/*.log
           - /var/log/messages
           - /var/log/syslog
+
+    processors:
+      - add_cloud_metadata: ~
+      - add_host_metadata: ~
+      - add_kubernetes_metadata:
+          in_cluster: true
+          
     output.logstash:
       hosts: ["logstash.logging.svc.cluster.local:5044"]
