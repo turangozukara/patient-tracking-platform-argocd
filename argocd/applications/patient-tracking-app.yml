@@ -78,7 +78,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/kullaniciadi/patient-tracking-platform-argocd
+    repoURL: https://github.com/turangozukara/patient-tracking-platform-argocd
     targetRevision: istio
     path: istio
   destination:
