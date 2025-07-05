@@ -184,3 +184,4 @@ pv:
 pvc:
   accessModes: ReadWriteOnce
   storage: 20Gi
+  storageClassName: local-path
