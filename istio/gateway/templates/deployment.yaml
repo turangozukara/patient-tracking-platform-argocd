@@ -104,6 +104,9 @@ spec:
             name: https
           - containerPort: 15020
             protocol: TCP
+            name: status-port
+          - containerPort: 15090
+            protocol: TCP
             name: http-envoy-prom
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
