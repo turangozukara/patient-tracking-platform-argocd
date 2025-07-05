@@ -64,12 +64,13 @@ data:
     global:
       scrape_interval: 15s
     scrape_configs:
-      - job_name: 'backend'
-        static_configs:
-          - targets: ['backend-svc.patient-tracking:80']
-      - job_name: 'frontend'
-        static_configs:
-          - targets: ['front-svc.patient-tracking:80']
+      - job_name: 'istio-mesh'
+        kubernetes_sd_configs:
+          - role: pod
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_container_port_name]
+            action: keep
+            regex: 'http-envoy-prom'
 
 ---
 
