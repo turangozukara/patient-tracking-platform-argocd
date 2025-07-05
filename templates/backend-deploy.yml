@@ -25,4 +25,4 @@ spec:
             - secretRef:
                 name: backend-secrets
           ports:
-            - containerPort: 80
+            - containerPort: {{ .Values.backend.containerPort }}

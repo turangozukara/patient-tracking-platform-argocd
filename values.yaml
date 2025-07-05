@@ -128,6 +128,7 @@ backend:
   image: turangozukara/backend:local
   replicaCount: 2
   secretName: backend-secrets
+  containerPort: 8080
 
 frontend:
   name: frontend-deploy
