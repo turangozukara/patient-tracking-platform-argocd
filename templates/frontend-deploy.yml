@@ -9,11 +9,6 @@ spec:
       app: {{ .Values.frontend.name }}
   template:
     metadata:
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "15090"
-        prometheus.io/path: /metrics
-        sidecar.istio.io/rewriteAppHTTPProbers: "true"
       labels:
         app: {{ .Values.frontend.name }}
     spec:
