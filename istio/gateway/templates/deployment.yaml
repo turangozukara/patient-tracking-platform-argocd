@@ -96,15 +96,6 @@ spec:
             value: {{ $val | quote }}
           {{- end }}
           ports:
-          - containerPort: 8080
-            protocol: TCP
-            name: http2
-          - containerPort: 8443
-            protocol: TCP
-            name: https
-          - containerPort: 15020
-            protocol: TCP
-            name: status-port
           - containerPort: 15090
             protocol: TCP
             name: http-envoy-prom

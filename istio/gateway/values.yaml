@@ -41,7 +41,7 @@ _internal_defaults_do_not_set:
 
   service:
     # Type of service. Set to "None" to disable the service entirely
-    type: NodePort
+    type: LoadBalancer
     ports:
     - name: status-port
       port: 15021
@@ -50,13 +50,11 @@ _internal_defaults_do_not_set:
     - name: http2
       port: 80
       protocol: TCP
-      targetPort: 8080
-      nodePort: 32732
+      targetPort: 80
     - name: https
       port: 443
       protocol: TCP
-      targetPort: 8443
-      nodePort: 31984
+      targetPort: 443
     annotations: {}
     loadBalancerIP: ""
     loadBalancerSourceRanges: []
