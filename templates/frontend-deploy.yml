@@ -2,10 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.frontend.name }}
-  annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/port: "15090"
-    prometheus.io/path: /metrics
 spec:
   replicas: {{ .Values.frontend.replicaCount }}
   selector:
@@ -13,6 +9,10 @@ spec:
       app: {{ .Values.frontend.name }}
   template:
     metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "15090"
+        prometheus.io/path: /metrics
       labels:
         app: {{ .Values.frontend.name }}
     spec:
