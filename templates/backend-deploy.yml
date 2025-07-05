@@ -13,6 +13,7 @@ spec:
         prometheus.io/scrape: "true"
         prometheus.io/port: "15090"
         prometheus.io/path: /metrics
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
       labels:
         app: {{ .Values.backend.name }}
     spec:
